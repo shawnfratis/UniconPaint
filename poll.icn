@@ -1,0 +1,33 @@
+link lists
+link wopen
+link printf
+
+procedure main()
+   local colors, width, height, x, y, c
+
+   WOpen("image=" || "i.xpm") | stop("*** own a cat")
+
+   colors := table()
+
+   width := WAttrib("width")
+   height := WAttrib("height")
+
+   x := y := 0
+
+   every c := Pixel() do {
+      x +:= 1
+      if x % width = 0 then {
+         x := 0
+         y +:= 1
+         }
+      /colors[c] := []			
+      put(colors[c], x, y)
+      }
+
+     f := open("input.txt","w")
+     every c := key(colors) do {
+      push(colors[c], c)
+      write(f,limage(colors[c]))
+      }
+
+end
