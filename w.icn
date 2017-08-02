@@ -129,11 +129,71 @@ method handle_event()
 	    #mod3d.calc_animation()
 	  }
 
-&ldrag :{
-           #Fg("blue")
-	      #DrawLine(&y,&y,&x,&x,&y,&y)
-            inpglcube01(?1,?2,?1,2,"blue")
+######################################################
+
+
+           &ldrag: {                    #&lrelease: 
+           Fg("blue")
+	      
+           x1 := 1&x   
+	      y1 := 30&y
+           z1 := 20&x
+         DrawLine(x1,y1,z1,&x,&y,&x)
 	     }
+	 # &mrelease: {
+	     # DrawLine(x1,y1,z1,&x,&y,&x)
+           # x1 := &x   
+	     # y1 := &y
+          # z1 := &x
+	    #  dragging := &null
+	 # }
+	 # &rrelease: {
+	    #  DrawLine(x1,y1,z1,&x,&y,&x)
+         #  x1 := &x   
+	   #   y1 := &y
+         #  z1 := &x
+	   #   }
+	  
+	 # &ldrag : {
+	     # DrawLine(x1,y1,z1,&x,&y,&x)
+	     # x1 := &x   
+	     # y1 := &y
+          # z1 := &x
+	 # }
+	  #&rdrag : {
+	     # DrawLine(x1,y1,z1,&x,&y,&x)
+	     # x1 := &x   
+	     # y1 := &y
+          # z1 := &x
+	  #}
+	 # &mdrag: {
+	     # if /dragging then dragging := 1
+	     # else { 
+		 # DrawLine(x1,y1,z1,x2,y2,z2)
+		 # }
+	     # x2 := &x
+	     # y2 := &y
+          # z2 := &x
+	      #DrawLine(x1,y1,z1,x2,y2,z2)
+           # x1 := &x   
+	     # y1 := &y
+          # z1 := &x
+
+	     	  #}
+
+         #&ldrag :{
+         #  Fg("blue")
+         #  x1 := &x   
+	     # y1 := &y
+          # z1 := &x
+           #DrawLine(?x1,?y1,?z1,?&x,?&y,?&x)
+	       #DrawLine(?10,?5,?10,?5,?8,?8)
+            #inpglcube01(?20,?20,?10,2,"blue")
+           # inpglcube01(?x1,?y1,?z1,2,"blue")
+	   #  }
+
+
+#######################################################
 
 	  
 	  Key_PgUp  : cam.rotate( 0, 0.1)
