@@ -92,3 +92,38 @@ end
 
 
 
+global subwins3d
+
+
+#class Subwindow3D : Component (xbtn_x, xbtn_y)
+   method resize()
+     compute_absolutes()
+     self.invalidate()  
+     WAttrib(cwin, "pos="||x||","||y)
+     WAttrib(cwin, "size="||w||","||h)
+   end
+   method display()
+   
+      
+    Refresh(cwin)
+   end
+   method init()
+      if /self.parent then
+         fatal("incorrect ancestry (parent null)")
+      self.parent_dialog := self.parent.get_parent_dialog_reference()
+
+      # clone clones tiny to start with, resize to actual size later
+      self.cwin := (Clone ! ([self.parent.get_cwin_reference(), "gl", "bg= black",
+               "size=1,1", "pos=14,195", "inputmask=mck"] |||
+              self.attribs)) | stop("can't open 3D win")
+      self.cbwin := (Clone ! ([self.parent.get_cbwin_reference(), "gl", "bg=black",
+                "size=1,1", "pos=14,195"] |||
+               self.attribs))
+
+      /subwins3d := set()
+      insert(subwins3d, self.cwin)      
+
+      set_accepts_focus()
+      dispatcher.add_subwin(self.cwin)
+   end
+end
