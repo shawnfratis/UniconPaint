@@ -76,9 +76,9 @@ class DynComps : Dialog(cont, p, text_button_6, text_button_7)
    Fg("orange")
    end
 
-   method on_DynComps(ev)
+   #method on_DynComps()
    #main3()
-   end
+   #end
 
    method setup()
       local add, del, panel_1, quit, repos, resize
