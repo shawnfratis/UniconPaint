@@ -6,19 +6,19 @@ link xcompat
 
 procedure main3()
 
-#w1 := ("bg=black","linewidth=1","fg=green","bg=black","size=300,300") | stop("can't open window")
-
-#WAttrib("fg=green")
-
 Fg("black")
 
-FillRectangle(10,10,800,500)
+FillRectangle(10,10,1200,600)
 
-WAttrib("linewidth=1","fg=green",Clip(10,10,800,500)) 
+w := ("gl","fg=green","size=1200,600")
 
+WAttrib("linewidth=1","fg=green",Clip(10,10,1200,600)) 
 
-  # w2 := XBind(w1,"drawop=xor") | stop("can't XBind w2")
-  # w3 := XBind(w1,"reverse=on") | stop("can't XBind w3")
+return()
+
+end
+
+procedure main4()
 
   repeat{
       w := Active() | stop("Active fails")
@@ -91,8 +91,8 @@ WAttrib("linewidth=1","fg=green",Clip(10,10,800,500))
 "\G": {
 	      Fg("yellow")
               }
-"\H": {
-	      Fg("black")
+"\/": {
+	      sphere01()
               }
 "\j": {
 	      WAttrib("bg=black")
@@ -137,8 +137,7 @@ WAttrib("linewidth=1","fg=green",Clip(10,10,800,500))
 	      
 	  }
 
-	  #"\^l": {
-        "\,": {
+	   "\,": {
 	      EraseArea()
 	    }
 	  "\e": break
@@ -161,5 +160,17 @@ WAttrib("linewidth=1","fg=green",Clip(10,10,800,500))
 }
  }
 
-#end
+end
+
+procedure sphere01()
+
+#WAttrib("gl")
+Fg("red")
+DrawSphere(w,0, 0, -5, 1)
+
+#Fg("red")
+#DrawSphere(1,1,1,1)
+
+return()
+
 end
