@@ -4,6 +4,20 @@
 link wopen
 link xcompat
 
+procedure main2()
+
+Fg("white")
+
+FillRectangle(10,10,1200,600)
+
+w := ("gl","fg=green","size=1200,600")
+
+WAttrib("linewidth=1","fg=green",Clip(10,10,1200,600)) 
+
+return()
+
+end
+
 procedure main3()
 
 Fg("black")
@@ -49,56 +63,7 @@ procedure main4()
 	 
         WriteImage("fg01.png")
         }
-"\q": {
-	      WAttrib("linewidth=1")
-              }
-"\w": {
-	      WAttrib("linewidth=2")
-              }
-"\y": {
-	      WAttrib("linewidth=3")
-              }
-"\u": {
-	      WAttrib("linewidth=4")
-              }
-"\i": {
-	      WAttrib("linewidth=5")
-              }
-"\o": {
-	      WAttrib("linewidth=6")
-              }
-"\p": {
-	      WAttrib("linewidth=8")
-              }
-"\k": {
-	      WAttrib("linewidth=10")
-              }
-"\a": {
-	      Fg("red")
-              }
-"\s": {
-	      Fg("green")
-              }
-"\g": {
-	      Fg("orange")
-              }
-"\h": {
-	      Fg("blue")
-              }
-"\J": {
-	      Fg("purple")
-              }
-"\G": {
-	      Fg("yellow")
-              }
-"\/": {
-	      sphere01()
-              }
-"\j": {
-	      WAttrib("bg=black")
-              }
-
-
+           
 	  &lrelease: {
 	      DrawLine(\x1,\y1,&x,&y)
 	      
@@ -158,19 +123,29 @@ procedure main4()
 	  dc := dragging
   return()    
 }
- }
+}
 
 end
 
-procedure sphere01()
+
+procedure openImage()
+
+ReadImage("fg01.png",1,1)
+
+end
+
+
+#not used yet
+
+#procedure sphere01()
 
 #WAttrib("gl")
-Fg("red")
-DrawSphere(w,0, 0, -5, 1)
+#Fg("red")
+#DrawSphere(w,0, 0, -5, 1)
 
 #Fg("red")
 #DrawSphere(1,1,1,1)
 
-return()
+#return()
 
-end
+#end
