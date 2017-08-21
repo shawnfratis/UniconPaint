@@ -1,0 +1,162 @@
+#Main module for Unicon Draw
+#Hacked mercilessly from Clint's Etch-a-Sketch program
+
+link wopen
+link xcompat
+
+procedure main2()
+
+Fg("white")
+
+FillRectangle(10,10,1200,600)
+
+w := ("gl","fg=green","size=1200,600")
+
+WAttrib("linewidth=1","fg=green",Clip(10,10,1200,600)) 
+
+return()
+
+end
+
+procedure main3()
+
+Fg("black")
+
+FillRectangle(10,10,1200,600)
+
+w := ("gl","fg=green","size=1200,600")
+
+WAttrib("linewidth=1","fg=green",Clip(10,10,1200,600)) 
+
+return()
+
+end
+
+procedure main4()
+
+  repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+"\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	  
+	  &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	 # &rdrag : {
+	     # DrawLine(x1,y1,&x,&y)
+	      
+	     # x1 := &x   
+	     # y1 := &y
+	 # }
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      
+	  }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+     # if (w === (w1|w2)) then {
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+
+procedure openImage()
+
+ReadImage("fg01.png",1,1)
+
+end
+
+
+#procedure winCD()
+
+#WinColorDialog(x)
+
+#x := clr
+
+#WAttrib("fg=x")
+
+#end
+
+
+#not used yet
+
+#procedure sphere01()
+
+#WAttrib("gl")
+#Fg("red")
+#DrawSphere(w,0, 0, -5, 1)
+
+#Fg("red")
+#DrawSphere(1,1,1,1)
+
+#return()
+
+#end
