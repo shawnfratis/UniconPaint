@@ -167,12 +167,15 @@ end
    end
 
    method on_text_button_27(ev)
+   fish01()           
    end
 
    method on_text_button_28(ev)
+   balls01()
    end
 
    method on_text_button_29(ev)
+   circle01()
    end
 
    method on_text_button_30(ev)
@@ -400,6 +403,7 @@ procedure main()
    
  end
 
+ 
 #################################################################
 
 #Main module for Unicon Draw
@@ -462,7 +466,7 @@ procedure main4()
 	      x2 := y2 := &null
 	  }
 	  
-"\z": {
+       "\z": {
 	 
         WriteImage("fg01.png")
         }
@@ -487,15 +491,12 @@ procedure main4()
 	      y1 := &y
 	  }
 	  &rdrag : {
-	      	    
-	    if a then balls(x1,y1)
-	   # else {
-	   # if b then circle(x1,y1)
-	  # )
-	      x1 := &x   
+	   
+              x1 := &x   
 	      y1 := &y
-	    
-	 }
+             
+             }
+
 	  &mdrag: {
 	      if /dragging then dragging := 1
 	      else { 
@@ -513,7 +514,6 @@ procedure main4()
 	  "\e": break
       }
 
-     # if (w === (w1|w2)) then {
       if w := 1 then {
 	  xa := x1
 	  xb := x2
@@ -532,15 +532,8 @@ procedure main4()
 
 end
 
-procedure balls(ax,bx)
+procedure fishx(ax,bx)
    
-#sphere:=      " 16 , g16 , FFFFB98788AEFFFF_
-     # FFD865554446AFFF FD856886544339FF E8579BA9643323AF_
-     # A569DECA7433215E 7569CDB86433211A 5579AA9643222108_
-     # 4456776533221007 4444443332210007 4333333222100008_
-     # 533322221100000A 822222111000003D D41111100000019F_
-     # FA200000000018EF FFA4000000028EFF FFFD9532248BFFFF"
-
 fish:= "32, c1, _
       ~~~~~~~~~~~~000~~~~~~00~~~~~~~00_
       ~~~~~~~~~~~0JJJ00~~~~0J00~~~00J0_
@@ -580,6 +573,19 @@ DrawImage(ax,bx,fish)
 
 end
 
+procedure balls(ax,bx)
+
+sphere:=      " 16 , g16 , FFFFB98788AEFFFF_
+      FFD865554446AFFF FD856886544339FF E8579BA9643323AF_
+      A569DECA7433215E 7569CDB86433211A 5579AA9643222108_
+      4456776533221007 4444443332210007 4333333222100008_
+      533322221100000A 822222111000003D D41111100000019F_
+      FA200000000018EF FFA4000000028EFF FFFD9532248BFFFF"
+
+DrawImage(ax,bx,sphere)
+
+end
+
 
 procedure circle(ax,bx)
 
@@ -595,6 +601,291 @@ procedure openImage()
 ReadImage("fg01.png",1,1)
 
 end
+
+
+procedure fish01()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    fishx(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+
+procedure balls01()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    balls(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+
+procedure circle01()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    circle(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+
+
 
 ################################################################
 
