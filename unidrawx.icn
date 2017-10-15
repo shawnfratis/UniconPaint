@@ -15,7 +15,7 @@
 import gui
 $include "guih.icn"
 
-class DynComps : Dialog(cont, p, text_button_6, text_button_7, text_button_8, text_button_10, text_button_11, text_button_12, text_button_13, text_button_14, text_button_15, text_button_9, text_button_16, text_button_17, text_button_18, text_button_19, text_button_20, text_button_21, text_button_22, text_button_23, text_button_24, text_button_25, text_button_26, text_button_27, text_button_28, text_button_29, text_button_30)
+class DynComps : Dialog(cont, p, text_button_6, text_button_7, text_button_8, text_button_10, text_button_11, text_button_12, text_button_13, text_button_14, text_button_15, text_button_9, text_button_16, text_button_17, text_button_18, text_button_19, text_button_20, text_button_21, text_button_22, text_button_23, text_button_24, text_button_25, text_button_26, text_button_27, text_button_28, text_button_29, text_button_30, text_button_31, text_button_32, text_button_33, text_button_34)
    method component_setup()
       self.setup()
       p := Panel("size=0,0")
@@ -143,7 +143,7 @@ end
    end
 
    method on_text_button_21(ev)
-   Notice("Press draw to start each action, then press Esc key. Press snap to make fg01.png. Press image to load fg01.png.")
+   Notice("Press draw to start each action, then press Esc key-you will have to do this with most actions. Left and middle mouse button do different things.Right button draws patterns-click Pattern buttons to select different ones. Press snap to make fg01.png. Press image to load fg01.png.")
    end
 
    method on_text_button_22(ev)
@@ -179,6 +179,23 @@ end
    end
 
    method on_text_button_30(ev)
+   glorbx01()
+   end
+
+   method on_text_button_31(ev)
+   circle02()
+   end
+
+   method on_text_button_32(ev)
+   paint01()
+   end
+
+   method on_text_button_33(ev)
+   paint02()
+   end
+
+   method on_text_button_34(ev)
+   rod01()
    end
 
    method setup()
@@ -288,7 +305,7 @@ end
       text_button_21.set_attribs("fg=white")
       text_button_21.connect(self, "on_text_button_21", ACTION_EVENT)
       text_button_21.clear_toggles()
-      text_button_21.set_label("info")
+      text_button_21.set_label("help")
       text_button_21.set_internal_alignment("c")
       panel_1.add(text_button_21)
       text_button_16 := TextButton()
@@ -357,37 +374,69 @@ end
       text_button_26.set_internal_alignment("c")
       panel_1.add(text_button_26)
       text_button_27 := TextButton()
-      text_button_27.set_pos("16", "32")
+      text_button_27.set_pos(232, "32")
       text_button_27.connect(self, "on_text_button_27", ACTION_EVENT)
       text_button_27.clear_toggles()
       text_button_27.set_label("pattern 1")
       text_button_27.set_internal_alignment("c")
       panel_1.add(text_button_27)
       text_button_28 := TextButton()
-      text_button_28.set_pos("97", "32")
+      text_button_28.set_pos(329, "32")
       text_button_28.connect(self, "on_text_button_28", ACTION_EVENT)
       text_button_28.clear_toggles()
       text_button_28.set_label("pattern 2")
       text_button_28.set_internal_alignment("c")
       panel_1.add(text_button_28)
       text_button_29 := TextButton()
-      text_button_29.set_pos("175", "32")
+      text_button_29.set_pos(425, "32")
       text_button_29.connect(self, "on_text_button_29", ACTION_EVENT)
       text_button_29.clear_toggles()
       text_button_29.set_label("pattern 3")
       text_button_29.set_internal_alignment("c")
       panel_1.add(text_button_29)
       text_button_30 := TextButton()
-      text_button_30.set_pos("255", "32")
+      text_button_30.set_pos(520, "32")
       text_button_30.connect(self, "on_text_button_30", ACTION_EVENT)
       text_button_30.clear_toggles()
       text_button_30.set_label("pattern 4")
       text_button_30.set_internal_alignment("c")
       panel_1.add(text_button_30)
+      text_button_31 := TextButton()
+      text_button_31.set_pos(615, "32")
+      text_button_31.set_size("70", "23")
+      text_button_31.connect(self, "on_text_button_31", ACTION_EVENT)
+      text_button_31.clear_toggles()
+      text_button_31.set_label("pattern 5")
+      text_button_31.set_internal_alignment("c")
+      panel_1.add(text_button_31)
+      text_button_32 := TextButton()
+      text_button_32.set_pos(708, "32")
+      text_button_32.set_size("70", )
+      text_button_32.connect(self, "on_text_button_32", ACTION_EVENT)
+      text_button_32.clear_toggles()
+      text_button_32.set_label("pattern 6")
+      text_button_32.set_internal_alignment("c")
+      panel_1.add(text_button_32)
+      text_button_33 := TextButton()
+      text_button_33.set_pos(805, "32")
+      text_button_33.set_size("70", )
+      text_button_33.connect(self, "on_text_button_33", ACTION_EVENT)
+      text_button_33.clear_toggles()
+      text_button_33.set_label("pattern 7")
+      text_button_33.set_internal_alignment("c")
+      panel_1.add(text_button_33)
+      text_button_34 := TextButton()
+      text_button_34.set_pos(899, "32")
+      text_button_34.set_size("70", )
+      text_button_34.connect(self, "on_text_button_34", ACTION_EVENT)
+      text_button_34.clear_toggles()
+      text_button_34.set_label("pattern 8")
+      text_button_34.set_internal_alignment("c")
+      panel_1.add(text_button_34)
       self.add(panel_1)
       cont := ComponentScrollArea()
-      cont.set_pos(609, 7)
-      cont.set_size(1190, 612)
+      cont.set_pos(609, 8)
+      cont.set_size(1208, 612)
       cont.set_align("c", "t")
       self.add(cont)
    end
@@ -415,11 +464,11 @@ procedure main2()
 
 Fg("white")
 
-FillRectangle(10,10,1200,600)
+FillRectangle(10,10,1200,610)
 
-w := ("gl","fg=green","size=1200,600")
+w := ("gl","fg=green","size=1200,610")
 
-WAttrib("linewidth=1","fg=green",Clip(10,10,1200,600)) 
+WAttrib("linewidth=1","fg=green",Clip(10,10,1200,610)) 
 
 return()
 
@@ -429,11 +478,11 @@ procedure main3()
 
 Fg("black")
 
-FillRectangle(10,10,1200,600)
+FillRectangle(10,10,1200,610)
 
-w := ("gl","fg=green","size=1200,600")
+w := ("gl","fg=green","size=1200,610")
 
-WAttrib("linewidth=1","fg=green",Clip(10,10,1200,600)) 
+WAttrib("linewidth=1","fg=green",Clip(10,10,1200,610)) 
 
 return()
 
@@ -591,7 +640,147 @@ procedure circle(ax,bx)
 
 Fg("red")
 
-DrawCircle(5,ax,bx)
+DrawCircle(ax,bx,5)
+
+end
+
+
+procedure glorbx(ax,bx)
+   
+glorb:= "32, c1, _
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_
+      ~~~~~~~~~~~AJJJAA~~~~~~~~~~~~~~~_
+      ~~~~~~~AAAAAATTTTTA~~~~~~~~~~~~~_
+      ~~~~~AAATTTTTTTTTTTTA~~~~~~~~~~~_
+      ~~~~AAAAATTTTTTTTTTTTJA~~~~~~~~~_
+      ~~~AAAAAATTTTTTTTTTTTTTAA~~~~~~~_
+      ~~AATTTTTTTTTTTTTTTTTTTTTA~~~~~~_
+      ~~ATTTTTTTTAAAAATTTTTTTTTTA~~~~~_
+      ~ATTTTTTAAAAAAAAAATTTTTTTTTA~~~~_
+      ~TTTTTTAAAAAAAAAAAATTTTTTAATT~~~_
+      ~TTTTAAAAAAAAAAAAAAATTTTTTTTA~~~_
+      ~TTTAAAAAAAAAAAAAAAATTTTTTTTTA~~_
+      ~TtTAAAAAAAAAAAAAAAAATTTTTTTTA~~_
+      ~TTTAAAAAAAAAAAAAAAAATTTTTTTTA~~_
+      ~TTAAAAAAAAAAAAAAAAAATTTTTTTTA~~_
+      ~TAAAAAAAAAAAAAAAAAAATTTTTTTTA~~_
+      ~TAAAAAAAAAAAAAAAAAAATTTTTTTTA~~_
+      ~TAAAAAAAAAAAAAAAAAAATTTTTTTTA~~_
+      ~TAAAAAAAAAAAAAAAAAAATTTTTTTA~~~_
+      ~AAAAAAAAAAAAAAAAAAATTTTTTTTT~~~_
+      ~AAAAAAAAAAAAAAAAATTTTTTTTTA~~~~_
+      ~AAAAAAAAAAAAAAAAAATTTTTTTTA~~~~_
+      ~AAAAAAAAAAAAAAAAATTTTTTTTTA~~~~_
+      ~AAAAAAAAAAAAAAATTTTTTTTTTA~~~~~_
+      ~~ATAAAAAAAAAAATTTTTTTTTTTA~~~~~_
+      ~~ATTTTTAAAAATTTTTTTTTTTTA~~~~~~_
+      ~~~ATTTTTTTTTTTTTTTTTTTTA~~~~~~~_
+      ~~~~ATTTTTTTTTTTTTTTTTAA~~~~~~~~_
+      ~~~~~AATTTTTTTTTTTTTAA~~~~~~~~~~_
+      ~~~~~~~AAATTTTTTTAAA~~~~~~~~~~~~_
+      ~~~~~~~~~~AAAAAAA~~~~~~~~~~~~~~~"
+
+
+DrawImage(ax,bx,glorb)
+
+end
+
+
+procedure circle2(ax,bx)
+
+color := ["red","green","blue","yellow"]
+
+Fg(?color)
+
+DrawCircle(ax,bx,10)
+
+end
+
+
+procedure paint1(ax,bx)
+   
+paint:= "32, c1, _
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_
+      ~~~~~~~~~~~AA~~AA~~~~~~~~~~~~~~~_
+      ~~~~~~~~~AAAAABBBAA~~~~~~~~~~~~~_
+      ~~~~~A~~AABBBBBBAB~BA~~~~~~~~~~~_
+      ~~~~AA~BABBABBBBBBBBBBA~~~~~~~~~_
+      ~~~AABBBBBBDBABBB~BBB~BAA~~~~~~~_
+      ~~~~BBBABBBBBBBBBBBBBAB~BA~~~~~~_
+      ~~~BB~~BBBBBBBBBBBBBBAABBBA~~~~~_
+      ~~ABBBBBBBDBBDBBBBBBBABBBAAA~~~~_
+      ~A~BBBBABBBBBBBBBBBBBBB~~BBAA~~~_
+      ~ABBBABBBBBBBBBBBBBBBBBBBBBBA~~~_
+      ~AA~~BBBBBDBBBBBBBBDBBAABAB~BA~~_
+      ~~AAABBBBBBDDDBBBBBBDBBBABBBBA~~_
+      ~AABBBBBBBBBDBBDBBBBBBBBBBBBA~~~_
+      ~AA~BBBBBBDDDDDBBBBDBDBBBB~BBA~~_
+      ~~AABBDBBBBDDDDDDBBBBBBBBBBBA~~~_
+      ~AABBBBBBBBDDDDBDBBBBBBABBB~B~~~_
+      ~ABB~BBBBBBBBBBBBBBBBBAB~BBA~~~~_
+      ~A~BBBBBDDDDDDBBBBBBBBBBBABA~~~~_
+      ~BBABBBBBBBBBDDDBBB~~BBBB~BA~~~~_
+      ~BB~BB~BBBBBBBBBBBBBBB~BBBA~~~~~_
+      ~~AABABBBBBDDBBBBBBBBBBBA~~~~~~~_
+      ~~ABBABABBABBBBBBBB~~BB~BA~~~~~~_
+      ~~~AB~ABBBABBBBBBBBBBB~~A~~~~~~~_
+      ~~~~ABBB~BBBBABB~~BBBBAA~~~~~~~~_
+      ~~~~~~ABBBAABBBBBBB~AA~~~~~~~~~~_
+      ~~~~~~~ABBB~BB~BB~BA~~~~~~~~~~~~_
+      ~~~~~~~~~~AAA~AAA~~~~~~~~~~~~~~~"
+
+
+
+DrawImage(ax,bx,paint)
+
+end
+
+procedure paint2(ax,bx)
+   
+paint:= "32, c1, _
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_
+      ~~~~~~~~~~~vv~~vv~~~~~~~~~~~~~~~_
+      ~~~~~~~~~vvvvvVVVvv~~~~~~~~~~~~~_
+      ~~~~~v~~vvVVVVVVvV~Vv~~~~~~~~~~~_
+      ~~~~vv~VvVVvVVVVVVVVVVv~~~~~~~~~_
+      ~~~vvVVVVVVIVvVVV~VVV~Vvv~~~~~~~_
+      ~~~~VVVvVVVVVVVVVVVVVvV~Vv~~~~~~_
+      ~~~VV~~VVVVVVVVVVVVVVvvVVVv~~~~~_
+      ~~vVVVVVVVIVVIVVVVVVVvVVVvvv~~~~_
+      ~v~VVVVvVVVVVVVVVVVVVVV~~VVvv~~~_
+      ~vVVVvVVVVVVVVVVVVVVVVVVVVVVv~~~_
+      ~vv~~VVVVVIVVVVVVVVIVVvvVvV~Vv~~_
+      ~~vvvVVVVVVIIIVVVVVVIVVVvVVVVv~~_
+      ~vvVVVVVVVVVIVVIVVVVVVVVVVVVv~~~_
+      ~vv~VVVVVVIIIIIVVVVIVIVVVV~VVv~~_
+      ~~vvVVIVVVVIIIIIIVVVVVVVVVVVv~~~_
+      ~vvVVVVVVVVIIIIVIVVVVVVvVVV~V~~~_
+      ~vVV~VVVVVVVVVVVVVVVVVvV~VVv~~~~_
+      ~v~VVVVVIIIIIIVVVVVVVVVVVvVv~~~~_
+      ~VVvVVVVVVVVVIIIVVV~~VVVV~Vv~~~~_
+      ~VV~VV~VVVVVVVVVVVVVVV~VVVv~~~~~_
+      ~~vvVvVVVVVIIVVVVVVVVVVVv~~~~~~~_
+      ~~vVVvVvVVvVVVVVVVV~~VV~Vv~~~~~~_
+      ~~~vV~vVVVvVVVVVVVVVVV~~v~~~~~~~_
+      ~~~~vVVV~VVVVvVV~~VVVVvv~~~~~~~~_
+      ~~~~~~vVVVvvVVVVVVV~vv~~~~~~~~~~_
+      ~~~~~~~vVVV~VV~VV~Vv~~~~~~~~~~~~_
+      ~~~~~~~~~~vvv~vvv~~~~~~~~~~~~~~~"
+
+
+
+DrawImage(ax,bx,paint)
+
+end
+
+
+procedure rod1(ax,bx)
+
+color := ["red","green","blue","yellow"]
+
+Fg(?color)
+
+DrawLine(ax,bx,ax + 10, bx + 10)
 
 end
 
@@ -885,13 +1074,479 @@ procedure circle01()
 end
 
 
+procedure circle02()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    circle2(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+
+procedure glorbx01()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    glorbx(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+
+procedure paint01()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    paint1(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+procedure paint02()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    paint2(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
+
+procedure rod01()
+
+ repeat{
+      w := Active() | stop("Active fails")
+      #if (w === (w1|w2)) then {
+      if w := 1 then {
+	  x1 := xa
+	  x2 := xb
+	  y1 := ya
+	  y2 := yb
+	  dragging := da
+      } else {
+	  x1 := xc
+	  x2 := xd
+	  y1 := yc
+	  y2 := yd
+	  dragging := dc
+      }
+      
+      case e := Event(w) of {
+	  
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+	  
+       "\z": {
+	 
+        WriteImage("fg01.png")
+        }
+           
+	  &lrelease: {
+	      DrawLine(\x1,\y1,&x,&y)
+	      
+	  }
+	  &mrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      dragging := &null
+	  }
+	  &rrelease: {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	  }
+	    &ldrag : {
+	      DrawLine(x1,y1,&x,&y)
+	      
+	      x1 := &x   
+	      y1 := &y
+	  }
+	  &rdrag : {
+	    rod1(x1,y1)
+              x1 := &x   
+	      y1 := &y
+             
+             }
+
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { 
+		  DrawLine(x1,y1,\x2,\y2)
+		  
+	      }
+	      x2 := &x
+	      y2 := &y
+	      DrawLine(x1,y1,x2,y2)
+	      }
+
+	   "\,": {
+	      EraseArea()
+	    }
+	  "\e": break
+      }
+
+      if w := 1 then {
+	  xa := x1
+	  xb := x2
+	  ya := y1
+	  yb := y2
+	  da := dragging
+      } else {
+	  xc := x1
+	  xd := x2
+	  yc := y1
+	  yd := y2
+	  dc := dragging
+  return()    
+}
+}
+
+end
 
 
 ################################################################
 
 ### Ivib-v2 layout ##
 #class|Canvas|17|Name Table|table|integer|0|3|string|border|integer|1|s
-#tring|panel|integer|2|string|text_button|integer|30|SuperClass Name|st
+#tring|panel|integer|2|string|text_button|integer|34|SuperClass Name|st
 #ring|Dialog|Import Name|string|gui|Button Groups|class|ButtonGroupSet|
 #2|Parent Canvas|1|Boxes|list|0|Checkbox Groups|class|CheckBoxGroupSet|
 #2|Parent Canvas|1|Boxes|list|0|Gen Indent|integer|3|Gen Main|integer|1
@@ -905,7 +1560,7 @@ end
 #50%|Y Spec|string|100%|W Spec|integer|1181|H Spec|integer|65|X Align|s
 #tring|c|Y Align|string|b|Is shaded|null|Is Button Subclass|null|Draw B
 #order|null|Attribs|list|0|Tooltip|null|Accel|null|Event Handlers|list|
-#0|Class Variable|null|Parent Component|1|Children|list|26|class|Canvas
+#0|Class Variable|null|Parent Component|1|Children|list|30|class|Canvas
 #TextButton|36|Parent Canvas|1|Name|string|quit|Class Name|string|TextB
 #utton|Import Name|string|gui|X Fix|integer|1|Y Fix|integer|1|W Fix|int
 #eger|1|H Fix|integer|1|W Default|integer|1|H Default|integer|1|X Spec|
@@ -1145,51 +1800,94 @@ end
 #ton Group|null|Internal Align|string|c|class|CanvasTextButton|36|Paren
 #t Canvas|1|Name|string|text_button_27|Class Name|string|TextButton|Imp
 #ort Name|string|gui|X Fix|null|Y Fix|integer|1|W Fix|null|H Fix|null|W
-# Default|integer|1|H Default|integer|1|X Spec|string|16|Y Spec|string|
-#32|W Spec|integer|70|H Spec|integer|23|X Align|string|l|Y Align|string
-#|t|Is shaded|null|Is Button Subclass|integer|1|Draw Border|null|Attrib
-#s|list|0|Tooltip|null|Accel|null|Event Handlers|list|1|list|2|string|A
-#CTION_EVENT|string|on_text_button_27|Class Variable|integer|1|Parent C
-#omponent|10|Label|string|pattern 1|No Keyboard|null|Img Up|null|Img Do
-#wn|null|Img Width|null|Img Height|null|Is Checked Flag|null|Is Checkbo
-#x Flag|null|Parent CheckBoxGroup|null|Parent Button Group|null|Interna
-#l Align|string|c|class|CanvasTextButton|36|Parent Canvas|1|Name|string
-#|text_button_28|Class Name|string|TextButton|Import Name|string|gui|X 
-#Fix|null|Y Fix|integer|1|W Fix|null|H Fix|null|W Default|integer|1|H D
-#efault|integer|1|X Spec|string|97|Y Spec|string|32|W Spec|integer|70|H
-# Spec|integer|23|X Align|string|l|Y Align|string|t|Is shaded|null|Is B
-#utton Subclass|integer|1|Draw Border|null|Attribs|list|0|Tooltip|null|
-#Accel|null|Event Handlers|list|1|list|2|string|ACTION_EVENT|string|on_
-#text_button_28|Class Variable|integer|1|Parent Component|10|Label|stri
-#ng|pattern 2|No Keyboard|null|Img Up|null|Img Down|null|Img Width|null
-#|Img Height|null|Is Checked Flag|null|Is Checkbox Flag|null|Parent Che
-#ckBoxGroup|null|Parent Button Group|null|Internal Align|string|c|class
-#|CanvasTextButton|36|Parent Canvas|1|Name|string|text_button_29|Class 
-#Name|string|TextButton|Import Name|string|gui|X Fix|null|Y Fix|integer
-#|1|W Fix|null|H Fix|null|W Default|integer|1|H Default|integer|1|X Spe
-#c|string|175|Y Spec|string|32|W Spec|integer|70|H Spec|integer|23|X Al
-#ign|string|l|Y Align|string|t|Is shaded|null|Is Button Subclass|intege
-#r|1|Draw Border|null|Attribs|list|0|Tooltip|null|Accel|null|Event Hand
-#lers|list|1|list|2|string|ACTION_EVENT|string|on_text_button_29|Class 
-#Variable|integer|1|Parent Component|10|Label|string|pattern 3|No Keybo
-#ard|null|Img Up|null|Img Down|null|Img Width|null|Img Height|null|Is C
-#hecked Flag|null|Is Checkbox Flag|null|Parent CheckBoxGroup|null|Paren
-#t Button Group|null|Internal Align|string|c|class|CanvasTextButton|36|
-#Parent Canvas|1|Name|string|text_button_30|Class Name|string|TextButto
-#n|Import Name|string|gui|X Fix|null|Y Fix|integer|1|W Fix|null|H Fix|n
-#ull|W Default|integer|1|H Default|integer|1|X Spec|string|255|Y Spec|s
-#tring|32|W Spec|integer|70|H Spec|integer|23|X Align|string|l|Y Align|
-#string|t|Is shaded|null|Is Button Subclass|integer|1|Draw Border|null|
-#Attribs|list|0|Tooltip|null|Accel|null|Event Handlers|list|1|list|2|st
-#ring|ACTION_EVENT|string|on_text_button_30|Class Variable|integer|1|Pa
-#rent Component|10|Label|string|pattern 4|No Keyboard|null|Img Up|null|
-#Img Down|null|Img Width|null|Img Height|null|Is Checked Flag|null|Is C
-#heckbox Flag|null|Parent CheckBoxGroup|null|Parent Button Group|null|I
-#nternal Align|string|c|class|CanvasPanel|26|Parent Canvas|1|Name|strin
-#g|cont|Class Name|string|ComponentScrollArea|Import Name|string|gui|X 
-#Fix|null|Y Fix|null|W Fix|null|H Fix|null|W Default|null|H Default|nul
-#l|X Spec|integer|609|Y Spec|integer|7|W Spec|integer|1190|H Spec|integ
-#er|612|X Align|string|c|Y Align|string|t|Is shaded|null|Is Button Subc
-#lass|null|Draw Border|null|Attribs|list|0|Tooltip|null|Accel|null|Even
-#t Handlers|list|0|Class Variable|integer|1|Parent Component|1|Children
-#|list|0|Initial Focus|null|Event Handlers|list|0|
+# Default|integer|1|H Default|integer|1|X Spec|integer|232|Y Spec|strin
+#g|32|W Spec|integer|70|H Spec|integer|23|X Align|string|l|Y Align|stri
+#ng|t|Is shaded|null|Is Button Subclass|integer|1|Draw Border|null|Attr
+#ibs|list|0|Tooltip|null|Accel|null|Event Handlers|list|1|list|2|string
+#|ACTION_EVENT|string|on_text_button_27|Class Variable|integer|1|Parent
+# Component|10|Label|string|pattern 1|No Keyboard|null|Img Up|null|Img 
+#Down|null|Img Width|null|Img Height|null|Is Checked Flag|null|Is Check
+#box Flag|null|Parent CheckBoxGroup|null|Parent Button Group|null|Inter
+#nal Align|string|c|class|CanvasTextButton|36|Parent Canvas|1|Name|stri
+#ng|text_button_28|Class Name|string|TextButton|Import Name|string|gui|
+#X Fix|null|Y Fix|integer|1|W Fix|null|H Fix|null|W Default|integer|1|H
+# Default|integer|1|X Spec|integer|329|Y Spec|string|32|W Spec|integer|
+#70|H Spec|integer|23|X Align|string|l|Y Align|string|t|Is shaded|null|
+#Is Button Subclass|integer|1|Draw Border|null|Attribs|list|0|Tooltip|n
+#ull|Accel|null|Event Handlers|list|1|list|2|string|ACTION_EVENT|string
+#|on_text_button_28|Class Variable|integer|1|Parent Component|10|Label|
+#string|pattern 2|No Keyboard|null|Img Up|null|Img Down|null|Img Width|
+#null|Img Height|null|Is Checked Flag|null|Is Checkbox Flag|null|Parent
+# CheckBoxGroup|null|Parent Button Group|null|Internal Align|string|c|c
+#lass|CanvasTextButton|36|Parent Canvas|1|Name|string|text_button_29|Cl
+#ass Name|string|TextButton|Import Name|string|gui|X Fix|null|Y Fix|int
+#eger|1|W Fix|null|H Fix|null|W Default|integer|1|H Default|integer|1|X
+# Spec|integer|425|Y Spec|string|32|W Spec|integer|70|H Spec|integer|23
+#|X Align|string|l|Y Align|string|t|Is shaded|null|Is Button Subclass|i
+#nteger|1|Draw Border|null|Attribs|list|0|Tooltip|null|Accel|null|Event
+# Handlers|list|1|list|2|string|ACTION_EVENT|string|on_text_button_29|C
+#lass Variable|integer|1|Parent Component|10|Label|string|pattern 3|No 
+#Keyboard|null|Img Up|null|Img Down|null|Img Width|null|Img Height|null
+#|Is Checked Flag|null|Is Checkbox Flag|null|Parent CheckBoxGroup|null|
+#Parent Button Group|null|Internal Align|string|c|class|CanvasTextButto
+#n|36|Parent Canvas|1|Name|string|text_button_30|Class Name|string|Text
+#Button|Import Name|string|gui|X Fix|null|Y Fix|integer|1|W Fix|null|H 
+#Fix|null|W Default|integer|1|H Default|integer|1|X Spec|integer|520|Y 
+#Spec|string|32|W Spec|integer|70|H Spec|integer|23|X Align|string|l|Y 
+#Align|string|t|Is shaded|null|Is Button Subclass|integer|1|Draw Border
+#|null|Attribs|list|0|Tooltip|null|Accel|null|Event Handlers|list|1|lis
+#t|2|string|ACTION_EVENT|string|on_text_button_30|Class Variable|intege
+#r|1|Parent Component|10|Label|string|pattern 4|No Keyboard|null|Img Up
+#|null|Img Down|null|Img Width|null|Img Height|null|Is Checked Flag|nul
+#l|Is Checkbox Flag|null|Parent CheckBoxGroup|null|Parent Button Group|
+#null|Internal Align|string|c|class|CanvasTextButton|36|Parent Canvas|1
+#|Name|string|text_button_31|Class Name|string|TextButton|Import Name|s
+#tring|gui|X Fix|null|Y Fix|integer|1|W Fix|null|H Fix|null|W Default|n
+#ull|H Default|null|X Spec|integer|615|Y Spec|string|32|W Spec|string|7
+#0|H Spec|string|23|X Align|string|l|Y Align|string|t|Is shaded|null|Is
+# Button Subclass|integer|1|Draw Border|null|Attribs|list|0|Tooltip|nul
+#l|Accel|null|Event Handlers|list|1|list|2|string|ACTION_EVENT|string|o
+#n_text_button_31|Class Variable|integer|1|Parent Component|10|Label|st
+#ring|pattern 5|No Keyboard|null|Img Up|null|Img Down|null|Img Width|nu
+#ll|Img Height|null|Is Checked Flag|null|Is Checkbox Flag|null|Parent C
+#heckBoxGroup|null|Parent Button Group|null|Internal Align|string|c|cla
+#ss|CanvasTextButton|36|Parent Canvas|1|Name|string|text_button_32|Clas
+#s Name|string|TextButton|Import Name|string|gui|X Fix|null|Y Fix|integ
+#er|1|W Fix|null|H Fix|null|W Default|null|H Default|integer|1|X Spec|i
+#nteger|708|Y Spec|string|32|W Spec|string|70|H Spec|integer|23|X Align
+#|string|l|Y Align|string|t|Is shaded|null|Is Button Subclass|integer|1
+#|Draw Border|null|Attribs|list|0|Tooltip|null|Accel|null|Event Handler
+#s|list|1|list|2|string|ACTION_EVENT|string|on_text_button_32|Class Var
+#iable|integer|1|Parent Component|10|Label|string|pattern 6|No Keyboard
+#|null|Img Up|null|Img Down|null|Img Width|null|Img Height|null|Is Chec
+#ked Flag|null|Is Checkbox Flag|null|Parent CheckBoxGroup|null|Parent B
+#utton Group|null|Internal Align|string|c|class|CanvasTextButton|36|Par
+#ent Canvas|1|Name|string|text_button_33|Class Name|string|TextButton|I
+#mport Name|string|gui|X Fix|null|Y Fix|integer|1|W Fix|null|H Fix|null
+#|W Default|null|H Default|integer|1|X Spec|integer|805|Y Spec|string|3
+#2|W Spec|string|70|H Spec|integer|23|X Align|string|l|Y Align|string|t
+#|Is shaded|null|Is Button Subclass|integer|1|Draw Border|null|Attribs|
+#list|0|Tooltip|null|Accel|null|Event Handlers|list|1|list|2|string|ACT
+#ION_EVENT|string|on_text_button_33|Class Variable|integer|1|Parent Com
+#ponent|10|Label|string|pattern 7|No Keyboard|null|Img Up|null|Img Down
+#|null|Img Width|null|Img Height|null|Is Checked Flag|null|Is Checkbox 
+#Flag|null|Parent CheckBoxGroup|null|Parent Button Group|null|Internal 
+#Align|string|c|class|CanvasTextButton|36|Parent Canvas|1|Name|string|t
+#ext_button_34|Class Name|string|TextButton|Import Name|string|gui|X Fi
+#x|null|Y Fix|integer|1|W Fix|null|H Fix|null|W Default|null|H Default|
+#integer|1|X Spec|integer|899|Y Spec|string|32|W Spec|string|70|H Spec|
+#integer|23|X Align|string|l|Y Align|string|t|Is shaded|null|Is Button 
+#Subclass|integer|1|Draw Border|null|Attribs|list|0|Tooltip|null|Accel|
+#null|Event Handlers|list|1|list|2|string|ACTION_EVENT|string|on_text_b
+#utton_34|Class Variable|integer|1|Parent Component|10|Label|string|pat
+#tern 8|No Keyboard|null|Img Up|null|Img Down|null|Img Width|null|Img H
+#eight|null|Is Checked Flag|null|Is Checkbox Flag|null|Parent CheckBoxG
+#roup|null|Parent Button Group|null|Internal Align|string|c|class|Canva
+#sPanel|26|Parent Canvas|1|Name|string|cont|Class Name|string|Component
+#ScrollArea|Import Name|string|gui|X Fix|null|Y Fix|null|W Fix|null|H F
+#ix|null|W Default|null|H Default|null|X Spec|integer|609|Y Spec|intege
+#r|8|W Spec|integer|1208|H Spec|integer|612|X Align|string|c|Y Align|st
+#ring|t|Is shaded|null|Is Button Subclass|null|Draw Border|null|Attribs
+#|list|0|Tooltip|null|Accel|null|Event Handlers|list|0|Class Variable|i
+#nteger|1|Parent Component|1|Children|list|0|Initial Focus|null|Event H
+#andlers|list|0|
