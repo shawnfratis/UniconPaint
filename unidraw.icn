@@ -3,7 +3,7 @@
 
 #Unicon-based drawing program-2017 Shawn L. Fratis
 
-#1st version - 8/26/17
+#1st version - 11/12/17
  
 #(shawnfratis@gmail.com
 
@@ -305,7 +305,7 @@ end
       text_button_21.set_attribs("fg=white")
       text_button_21.connect(self, "on_text_button_21", ACTION_EVENT)
       text_button_21.clear_toggles()
-      text_button_21.set_label("help")
+      text_button_21.set_label("info")
       text_button_21.set_internal_alignment("c")
       panel_1.add(text_button_21)
       text_button_16 := TextButton()
@@ -435,8 +435,8 @@ end
       panel_1.add(text_button_34)
       self.add(panel_1)
       cont := ComponentScrollArea()
-      cont.set_pos(609, 8)
-      cont.set_size(1208, 612)
+      cont.set_pos(609, 5)
+      cont.set_size(1212, 614)
       cont.set_align("c", "t")
       self.add(cont)
    end
@@ -464,11 +464,11 @@ procedure main2()
 
 Fg("white")
 
-FillRectangle(10,10,1200,610)
+FillRectangle(9,10,1200,604)
 
-w := ("gl","fg=green","size=1200,610")
+w := ("gl","fg=green","size=1200,604")
 
-WAttrib("linewidth=1","fg=green",Clip(10,10,1200,610)) 
+WAttrib("linewidth=1","fg=green",Clip(9,10,1200,604)) 
 
 return()
 
@@ -478,11 +478,11 @@ procedure main3()
 
 Fg("black")
 
-FillRectangle(10,10,1200,610)
+FillRectangle(9,10,1200,604)
 
-w := ("gl","fg=green","size=1200,610")
+w := ("gl","fg=green","size=1200,604")
 
-WAttrib("linewidth=1","fg=green",Clip(10,10,1200,610)) 
+WAttrib("linewidth=1","fg=green",Clip(9,10,1200,604)) 
 
 return()
 
@@ -1886,7 +1886,7 @@ end
 #sPanel|26|Parent Canvas|1|Name|string|cont|Class Name|string|Component
 #ScrollArea|Import Name|string|gui|X Fix|null|Y Fix|null|W Fix|null|H F
 #ix|null|W Default|null|H Default|null|X Spec|integer|609|Y Spec|intege
-#r|8|W Spec|integer|1208|H Spec|integer|612|X Align|string|c|Y Align|st
+#r|5|W Spec|integer|1212|H Spec|integer|614|X Align|string|c|Y Align|st
 #ring|t|Is shaded|null|Is Button Subclass|null|Draw Border|null|Attribs
 #|list|0|Tooltip|null|Accel|null|Event Handlers|list|0|Class Variable|i
 #nteger|1|Parent Component|1|Children|list|0|Initial Focus|null|Event H
